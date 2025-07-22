@@ -51,7 +51,6 @@ if uploaded_file:
         try:
            from openai import OpenAI
 
-from openai import OpenAI
 
 response = openai.ChatCompletion.create(
     model="gpt-4",
