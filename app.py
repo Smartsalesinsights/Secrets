@@ -6,7 +6,7 @@ import plotly.express as px
 from fpdf import FPDF
 import datetime
 
- OPENAI_API_KEY = "sk-xxxxxxxxxxxxxxxxxxxxxxx"
+ client = OpenAI("sk-xxxxxxxxxxxxxxxxxxxxxxx")
 
 st.set_page_config(page_title="SmartSales Insight", layout="centered")
 st.title("📊 SmartSales Insight")
