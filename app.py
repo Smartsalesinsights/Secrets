@@ -52,10 +52,18 @@ if uploaded_file:
            from openai import OpenAI
 
 
-response = openai.ChatCompletion.create(
-    model="gpt-4",
-    messages=[{"role": "user", "content": prompt}]
-)
+try:
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[{"role": "user", "content": prompt}]
+    )
+    insight = response.choices[0].message.content
+    st.subheader("🤖 AI-Powered Insights")
+    st.text_area("Insights", insight, height=300)
+
+except Exception as e:
+    st.error(f"OpenAI API Error: {e}")
+
 insight = response['choices'][0]['message']['content']insight = response.choices[0].message.content
 
             st.subheader("🤖 AI-Powered Insights")
