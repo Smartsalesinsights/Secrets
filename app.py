@@ -1,5 +1,5 @@
 
-import openai import OPENAI
+from openai import OPENAI
 import streamlit as st
 import pandas as pd
 import plotly.express as px
