@@ -1,8 +1,8 @@
 
+import openai import OPENAI
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import openai
 from fpdf import FPDF
 import datetime
 
