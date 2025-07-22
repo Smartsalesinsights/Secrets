@@ -6,7 +6,8 @@ import plotly.express as px
 from fpdf import FPDF
 import datetime
 
-openai.api_key = OPENAI_API_KEY = "sk-xxxxxxxxxxxxxxxxxxxxxxx"
+# ✅ Initialize OpenAI client using new SDK syntax
+client = "sk-xxxxxxxxxxxxxxxxxxxxxxx"
 
 st.set_page_config(page_title="SmartSales Insight", layout="centered")
 st.title("📊 SmartSales Insight")
@@ -45,30 +46,17 @@ if uploaded_file:
         2. Top-performing and underperforming products or regions
         3. Business recommendations to improve sales
 
-        Data Summary:
+       Data Summary:
         {summary}
         """
         try:
-           from openai import OpenAI
-
-
-try:
-    response = client.chat.completions.create(
-        model="gpt-4",
-        messages=[{"role": "user", "content": prompt}]
-    )
-    insight = response.choices[0].message.content
-    st.subheader("🤖 AI-Powered Insights")
-    st.text_area("Insights", insight, height=300)
-
-except Exception as e:
-    st.error(f"OpenAI API Error: {e}")
-
-insight = response['choices'][0]['message']['content']insight = response.choices[0].message.content
-
+            response = client.chat.completions.create(
+                model="gpt-4",
+                messages=[{"role": "user", "content": prompt}]
+            )
+            insight = response.choices[0].message.content
             st.subheader("🤖 AI-Powered Insights")
             st.text_area("Insights", insight, height=300)
-
             def export_to_pdf(insight_text):
                 pdf = FPDF()
                 pdf.add_page()
