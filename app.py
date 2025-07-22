@@ -49,11 +49,16 @@ if uploaded_file:
         {summary}
         """
         try:
-            response = openai.ChatCompletion.create(
-                model="gpt-4",
-                messages=[{"role": "user", "content": prompt}]
-            )
-            insight = response['choices'][0]['message']['content']
+           from openai import OpenAI
+
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
+response = client.chat.completions.create(
+    model="gpt-4",
+    messages=[{"role": "user", "content": prompt}]
+)
+insight = response.choices[0].message.content
+
             st.subheader("🤖 AI-Powered Insights")
             st.text_area("Insights", insight, height=300)
 
