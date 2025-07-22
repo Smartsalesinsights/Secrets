@@ -1,5 +1,5 @@
 
-from openai import OPENAI
+from openai import OpenAI
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -7,7 +7,7 @@ from fpdf import FPDF
 import datetime
 
 # ✅ Initialize OpenAI client using new SDK syntax
-client = "sk-xxxxxxxxxxxxxxxxxxxxxxx"
+client = OpenAI("sk-xxxxxxxxxxxxxxxxxxxxxxx")
 
 st.set_page_config(page_title="SmartSales Insight", layout="centered")
 st.title("📊 SmartSales Insight")
