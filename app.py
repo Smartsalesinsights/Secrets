@@ -6,7 +6,7 @@ import openai
 from fpdf import FPDF
 import datetime
 
-openai.api_key = st.secrets[OPENAI_API_KEY = "sk-xxxxxxxxxxxxxxxxxxxxxxx"]
+openai.api_key = OPENAI_API_KEY = "sk-xxxxxxxxxxxxxxxxxxxxxxx"
 
 st.set_page_config(page_title="SmartSales Insight", layout="centered")
 st.title("📊 SmartSales Insight")
